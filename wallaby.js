@@ -22,6 +22,7 @@ module.exports = () => {
         testFramework: 'jest',
 
         setup: w => {
+            process.chdir(w.projectCacheDir);
             process.env.NODE_ENV = 'test';
             const jestConfig = require('./jest.config');
             w.testFramework.configure(jestConfig);
